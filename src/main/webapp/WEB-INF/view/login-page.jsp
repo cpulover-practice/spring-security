@@ -9,13 +9,9 @@
 </head>
 <body>
 	<h3>My Customer Login Page</h3>
-	${pageContext.request.contextPath}
-	Hi
 </body>
 
-<form:form
-	action="authenticateTheUser"
-	method="POST">
+<form:form action="${pageContext.request.contextPath}/authenticateTheUser" method="POST">
 	<p>
 		<!-- name must be username and password -->
 		Username: <input type="text" name="username" />
@@ -23,6 +19,6 @@
 	<p>
 		Password: <input type="password" name="password" />
 	</p>
-	<input type="submit" value="Login"/>
+	<input type="submit" value="Login" />
 </form:form>
 </html>
