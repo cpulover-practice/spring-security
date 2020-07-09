@@ -4,8 +4,9 @@
 1. Create Maven project with webapp archertype in Esclipse.
 2. Setup pom file 
 [[pom.xml]()]
-   - ```springframework``` property with ```spring-webmvc``` dependency
-   - ```springsecurity``` property with ```spring-security-web``` and ``spring-security-config``` (must compatible with springframework version, may be different)
+   - ```springframework.version``` property with ```spring-webmvc``` dependency
+   - ```springsecurity.version``` property with ```spring-security-web``` and ``spring-security-config``` (must compatible with springframework version, may be different)
+   - ```spring-security-taglabs``` dependency (for access user id/role in JSP)
    - ```javax.servlet-api, javax.servlet.jsp-api, jstl``` dependency (support Servlet, JSP and JSTL)
    - ```jaxb-api``` dependency (compensate for Java 9+ not including jaxb)
    - ```maven-war-plugin``` plugin (add GAV)
@@ -54,8 +55,11 @@
 [[home.jsp]()]
    - Update login form to display logout message 
 [[styled-login-page.jsp]()]
-
-
+5. User info display
+[[home.jsp]()]
+   - Spring Security JSP Tag Library: ```<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags"%>```
+   - Display user name: ```<security:authentication property="principal.username"/>```
+   - Display user roles: ```<security:authentication property="principal.authorities"/>```
 ## Notes/Tips
 - If ```src/main/java``` and ```src/test/java``` are not availalbe, go to Build Path -> Export folders
 - Select override method: Right click -> Source (Alt+Shift+S) -> Override methods
@@ -68,7 +72,7 @@
   - Clean the server
 - We can customize AuthenticationFailureHandler by Java code 
 [[URL](https://www.baeldung.com/spring-security-custom-authentication-failure-handler)]
-
+- <form:from> automatically adds CSRF tokens
 
 
 
