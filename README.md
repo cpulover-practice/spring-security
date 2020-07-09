@@ -45,7 +45,8 @@
 [[LoginController]()]
 3. Create customer login form
 [[login-page.jsp]()]
-   - Spring MVC form tag: ```<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>``` 
+   - Spring MVC form tag: ```<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>``` (to post username and password to the Authentication) 
+   - JSTL: <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> (to get the error message)
 
 ## Notes/Tips
 - If ```src/main/java``` and ```src/test/java``` are not availalbe, go to Build Path -> Export folders
@@ -57,7 +58,8 @@
   - Delete .project and .classpath files and .settings directory from the project folder
   - Re-import project: Import -> Existing Maven Project
   - Clean the server
-
+- We can customize AuthenticationFailureHandler by Java code 
+[[URL](https://www.baeldung.com/spring-security-custom-authentication-failure-handler)]
 
 
 
