@@ -20,6 +20,17 @@
 [[SpringMvcInitializer]()]
    - Configure ```getServletConfigClasses()``` returns to the Configuration class.
    - Configure ```getServletMappings()```
+7. Create Controller class 
+[[DemoController]()]
+   - @Controller
+   - @RequestMapping, @GetMapping, @PostMapping
+8. Create 'view' folder in ```src/main/webapp/WEB-INF``` to contain all JSP pages
+9. Create JSP page 
+[[home.jsp]()]
+10. Test run project on server
+
+
+
 
 ## Notes/Tips
 - If ```src/main/java``` and ```src/test/java``` are not availabe, go to Build Path -> Export folders
