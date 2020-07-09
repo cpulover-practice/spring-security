@@ -73,6 +73,29 @@
 3. Display content based on Roles: ```<security:authorize access="hasRole('<role>')"> 
 [[home.jsp]()]
 
+## Database
+1. Create database schema and tables (preferred schema for Spring Security) 
+[[create-database.sql]()]
+   - ```users``` with usename (PK, varchar), password (varchar), enabled (tinyint)
+   - ```authorities``` with username (FK, UNI, varchar), authority (UNI, varchar) with ```ROLE_``` prefix
+2. Add database support to POM file 
+   - JDBC driver: ```mysql-connector-java``` dependency 
+   - Database Connection Pool: ``com.mchange.c3p0``` dependency
+3. Create JDBC properties file in src/main/resources
+[[persistence-mysql.properties]()]
+4. Define DataSource in Spring Configuration with @PropertySource 
+[[AppConfig]()]
+   - Inject Enviroment to hold data properties with @AutoWired
+   - Define DataSource object bean
+     - Create connection pool
+     - Set the JDBC driver
+     - Set database connection properties
+     - Set connection pool properties
+5. Update Security Configuration to use JDBC 
+[[SecurityConfig]()]
+   - Inject DataSource with @AutoWired
+   - ```auth.jdbcAuthentication().dataSource(<data source>)```
+
 ## Notes/Tips
 - If ```src/main/java``` and ```src/test/java``` are not availalbe, go to Build Path -> Export folders
 - Select override method: Right click -> Source (Alt+Shift+S) -> Override methods
@@ -86,9 +109,10 @@
 - We can customize AuthenticationFailureHandler by Java code 
 [[URL](https://www.baeldung.com/spring-security-custom-authentication-failure-handler)]
 - ```<form:from>``` automatically adds CSRF tokens
-
-
-
+- Password formats in Spring Security 5: noop (plain text), bcrypt (BCrypt hashing)
+- Resources in src/main/resources will be automatically copied to classpath during Maven build
+- Implement "Remember me" function 
+[[URL](https://www.baeldung.com/spring-security-remember-me)]
 
 
 
