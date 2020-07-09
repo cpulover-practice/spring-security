@@ -38,11 +38,19 @@
     - Override ```configure(AuthenticationManagerBuilder)``` to add users for in-memory authentication
 13. Run project on server to test Spring Security
 
+## Custom Login Form
+1. Modify Spring Security Configuration to reference custom login form by overriding ```configure(HttpSecurity)```.
+[[SecurityConfig]()]
+2. Develop a Controller to show the custom login form 
+[[LoginController]()]
+3. Create customer login form
+[[login-page.jsp]()]
+   - Spring MVC form tag: ```<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>``` 
 
 ## Notes/Tips
-- If ```src/main/java``` and ```src/test/java``` are not availabe, go to Build Path -> Export folders
-- Select override method: right click -> source (Alt+Shift+S) -> override methods
-
+- If ```src/main/java``` and ```src/test/java``` are not availalbe, go to Build Path -> Export folders
+- Select override method: Right click -> Source (Alt+Shift+S) -> Override methods
+- Change context root to resolve duplicate name app on the server: Properties -> Web Project Settings.
 
 
 
