@@ -55,11 +55,22 @@
 [[home.jsp]()]
    - Update login form to display logout message 
 [[styled-login-page.jsp]()]
-5. User info display
+
+## User Stuffs
+1. User info display
 [[home.jsp]()]
    - Spring Security JSP Tag Library: ```<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags"%>```
    - Display user name: ```<security:authentication property="principal.username"/>```
    - Display user roles: ```<security:authentication property="principal.authorities"/>```
+2. Restrict access based on roles: ```antMatchers(<path>).hasRole(<role>)``` 
+[[Security]()]
+3. Custom Access Denied Page
+   - Configure page path in Security Configuration file with ```exceptionHandling().accessDeniedPage(<path>)``` 
+[[Security]()]
+   - Create supporting controller code and JSP page 
+[[access-denied.jsp]()][[LoginController]()]
+   - [!] Internal browser of Eclipse does not display Custom Access Denied Page
+
 ## Notes/Tips
 - If ```src/main/java``` and ```src/test/java``` are not availalbe, go to Build Path -> Export folders
 - Select override method: Right click -> Source (Alt+Shift+S) -> Override methods

@@ -24,13 +24,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests().anyRequest().authenticated() // any requests to the app must be authenticated
+		http.authorizeRequests()
+				//.anyRequest().authenticated() // any requests to the app must be authenticated
+				.antMatchers("/").hasRole("EMPLOYEE")
+				.antMatchers("/leaders/**").hasRole("MANAGER")
+				.antMatchers("/systems/**").hasRole("ADMIN")
 				.and().formLogin() // customize the form login
 				.loginPage("/showLoginPage") // declare request mapping (need to define in Controller) to show form
 				.loginProcessingUrl("/authenticateTheUser") // login form should POST data to this URL for processing
 															// (no need to define in Controller)
 				.permitAll() // allow everyone to see the login page
-				.and().logout().permitAll(); // add logout support
+				.and().logout().permitAll() // add logout support
+				.and().exceptionHandling().accessDeniedPage("/access-denied"); //declare path for access denied page
 	}
 
 }

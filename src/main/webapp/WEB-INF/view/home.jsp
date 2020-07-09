@@ -22,6 +22,18 @@
 		<security:authentication property="principal.authorities" />
 	</p>
 	<hr>
+	<!-- Add a link points to /leaders, only for managers -->
+	<p>
+		<a href="${pageContext.request.contextPath}/leaders">Leadership
+			Meeting</a> (Only for Managers)
+	</p>
+	
+	<!-- Add a link points to /systems, only for admins -->
+	<p>
+		<a href="${pageContext.request.contextPath}/systems">VIP
+			Meeting</a> (Only for Admins)
+	</p>
+	<hr>
 
 	<p>Welcome to Home page!</p>
 
