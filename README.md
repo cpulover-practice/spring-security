@@ -47,6 +47,14 @@
 [[login-page.jsp]()]
    - Spring MVC form tag: ```<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>``` (to post username and password to the Authentication) 
    - JSTL: ```<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>``` (to get the error message)
+4. Add logout function
+   - Add logout support to Spring Security Configuration 
+[[SecurityConfig]()]
+   - Add logout button to JSP page
+[[home.jsp]()]
+   - Update login form to display logout message 
+[[styled-login-page.jsp]()]
+
 
 ## Notes/Tips
 - If ```src/main/java``` and ```src/test/java``` are not availalbe, go to Build Path -> Export folders

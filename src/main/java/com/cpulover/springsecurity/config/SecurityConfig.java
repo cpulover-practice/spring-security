@@ -29,7 +29,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.loginPage("/showLoginPage") // declare request mapping (need to define in Controller) to show form
 				.loginProcessingUrl("/authenticateTheUser") // login form should POST data to this URL for processing
 															// (no need to define in Controller)
-				.permitAll(); // allow everyone to see the login page
+				.permitAll() // allow everyone to see the login page
+				.and().logout().permitAll(); // add logout support
 	}
 
 }
