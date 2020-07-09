@@ -46,7 +46,7 @@
 3. Create customer login form
 [[login-page.jsp]()]
    - Spring MVC form tag: ```<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>``` (to post username and password to the Authentication) 
-   - JSTL: <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> (to get the error message)
+   - JSTL: ```<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>``` (to get the error message)
 
 ## Notes/Tips
 - If ```src/main/java``` and ```src/test/java``` are not availalbe, go to Build Path -> Export folders
