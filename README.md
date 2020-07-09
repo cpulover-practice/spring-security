@@ -63,10 +63,10 @@
    - Display user name: ```<security:authentication property="principal.username"/>```
    - Display user roles: ```<security:authentication property="principal.authorities"/>```
 2. Restrict access based on roles: ```antMatchers(<path>).hasRole(<role>)``` 
-[[Security]()]
+[[SecurityConfig]()]
 3. Custom Access Denied Page
    - Configure page path in Security Configuration file with ```exceptionHandling().accessDeniedPage(<path>)``` 
-[[Security]()]
+[[SecurityConfig]()]
    - Create supporting controller code and JSP page 
 [[access-denied.jsp]()][[LoginController]()]
    - [!] Internal browser of Eclipse does not display Custom Access Denied Page
@@ -83,7 +83,7 @@
   - Clean the server
 - We can customize AuthenticationFailureHandler by Java code 
 [[URL](https://www.baeldung.com/spring-security-custom-authentication-failure-handler)]
-- <form:from> automatically adds CSRF tokens
+- ```<form:from>``` automatically adds CSRF tokens
 
 
 
