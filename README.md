@@ -57,7 +57,7 @@
 [[styled-login-page.jsp]()]
 
 ## User Stuffs
-1. User info display
+1. Display user info 
 [[home.jsp]()]
    - Spring Security JSP Tag Library: ```<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags"%>```
    - Display user name: ```<security:authentication property="principal.username"/>```
@@ -70,6 +70,8 @@
    - Create supporting controller code and JSP page 
 [[access-denied.jsp]()][[LoginController]()]
    - [!] Internal browser of Eclipse does not display Custom Access Denied Page
+3. Display content based on Roles: ```<security:authorize access="hasRole('<role>')"> 
+[[home.jsp]()]
 
 ## Notes/Tips
 - If ```src/main/java``` and ```src/test/java``` are not availalbe, go to Build Path -> Export folders
