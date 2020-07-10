@@ -1,43 +1,49 @@
 # List of practiced topics
 
-## Configuaration
+## Configuaration by Java
 1. Create Maven project with webapp archertype in Esclipse.
 2. Setup POM file 
 [[pom.xml](https://github.com/cpulover-practice/spring-security/blob/master/pom.xml)]
    - ```springframework.version``` property with ```spring-webmvc``` dependency
-   - ```springsecurity.version``` property with ```spring-security-web``` and ```spring-security-config``` (must compatible with springframework version, may be different)
-   - ```spring-security-taglabs``` dependency (for access user id/role in JSP)
+   - ```springsecurity.version``` property with ```spring-security-web``` and ```spring-security-config``` dependency (must compatible with springframework version, may be different)
+   - ```spring-security-taglabs``` dependency (access user id/role in JSP)
    - ```javax.servlet-api, javax.servlet.jsp-api, jstl``` dependency (support Servlet, JSP and JSTL)
    - ```jaxb-api``` dependency (compensate for Java 9+ not including jaxb)
    - ```maven-war-plugin``` plugin (add GAV)
 3. Project properties (Alt+Enter) -> Project facets -> Runtimes: Tomcat
 4. Update Maven project (Alt+F5)
-5. Create Spring Configuration class 
+
+### Spring MVC Configuration
+1. Create Spring Configuration class 
 [[AppConfig](https://github.com/cpulover-practice/spring-security/blob/master/src/main/java/com/cpulover/springsecurity/config/AppConfig.java)]
    - *__@Configuration__*
    - *__@EnableWebMvc__* (<=> ```<mvc:annotation-driven>```)
    - *__@ComponentScan__* with *```basePackages```*
    - Define a bean for View Resolver
-6. Create Spring Dispatcher Servlet Initializer extends AbstractAnnotationConfigDispatcherServletInitializer
+2. Create Spring Dispatcher Servlet Initializer extends AbstractAnnotationConfigDispatcherServletInitializer
 [[SpringMvcInitializer](https://github.com/cpulover-practice/spring-security/blob/master/src/main/java/com/cpulover/springsecurity/config/SpringMvcInitializer.java)]
-   - Configure ```getServletConfigClasses()``` returns to the Configuration class.
+   - Configure ```getServletConfigClasses()``` returns to Spring Configuration class.
    - Configure ```getServletMappings()```
-7. Create Controller class 
+3. Create Controller class 
 [[DemoController](https://github.com/cpulover-practice/spring-security/blob/master/src/main/java/com/cpulover/springsecurity/controller/DemoController.java)]
    - *__@Controller__*
    - *__@RequestMapping__*, *__@GetMapping__*, *__@PostMapping__*
-8. Create 'view' folder in ```src/main/webapp/WEB-INF``` to contain all JSP pages
-9. Create JSP page 
+4. Create 'view' folder in ```src/main/webapp/WEB-INF``` to contain all JSP pages
+5. Create JSP page 
 [[home.jsp](https://github.com/cpulover-practice/spring-security/blob/master/src/main/webapp/WEB-INF/view/home.jsp)]
-10. Run project on server to test Spring MVC
-11. Create Spring Security Initializer extends AbstractSecurityWebApplicationInitializer 
+6. Run project on server to test Spring MVC
+
+### Spring Security Configuration
+1. Create Spring Security Initializer extends AbstractSecurityWebApplicationInitializer 
 [[SecurityInitializer](https://github.com/cpulover-practice/spring-security/blob/master/src/main/java/com/cpulover/springsecurity/config/SecurityInitializer.java)]
-12. Create Spring Security Configuration class extends WebSecurityConfigurerAdapter
+2. Create Spring Security Configuration class extends WebSecurityConfigurerAdapter
 [[SecurityConfig](https://github.com/cpulover-practice/spring-security/blob/master/src/main/java/com/cpulover/springsecurity/config/SecurityConfig.java)]
     - @*__Configuration__*
     - *__@EnableWebSecurity__*
     - Override ```configure(AuthenticationManagerBuilder)``` to add users for in-memory authentication
-13. Run project on server to test Spring Security
+3. Run project on server to test Spring Security
+
+---
 
 ## Custom Login Form
 1. Modify Spring Security Configuration to reference custom login form by overriding ```configure(HttpSecurity)```.
@@ -56,6 +62,8 @@
    - Update login form to display logout message 
 [[styled-login-page.jsp](https://github.com/cpulover-practice/spring-security/blob/master/src/main/webapp/WEB-INF/view/styled-login-page.jsp)]
 
+---
+
 ## User Stuffs
 1. Display user info 
 [[home.jsp](https://github.com/cpulover-practice/spring-security/blob/master/src/main/webapp/WEB-INF/view/home.jsp)]
@@ -73,6 +81,8 @@
    - [!] Internal browser of Eclipse does not display Custom Access Denied Page
 3. Display content based on Roles: ```<security:authorize access="hasRole('<role>')"> 
 [[home.jsp](https://github.com/cpulover-practice/spring-security/blob/master/src/main/webapp/WEB-INF/view/home.jsp)]
+
+---
 
 ## Database
 1. Create database schema and tables (preferred schema for Spring Security) 
@@ -97,17 +107,19 @@
    - Inject DataSource with @AutoWired
    - ```auth.jdbcAuthentication().dataSource(<data source>)```
 
+---
+
 ## Notes/Tips
 - If ```src/main/java``` and ```src/test/java``` are not availalbe, go to Build Path -> Export folders
 - Select override method: Right click -> Source (Alt+Shift+S) -> Override methods
-- Change context root to resolve duplicate name app on the server: Properties -> Web Project Settings.
+- Change Context Root (Context Path) to resolve duplicate name app on the server: Properties -> Web Project Settings.
 - Change Servlet 2.3 (generated by archertype webapp) to Servlet 3.0, to use ```${pageContext.request.contextPath}```
   - Modify [web.xml](https://github.com/cpulover-practice/spring-security/blob/master/src/main/webapp/WEB-INF/web.xml)
   - Close project and delete it from the workspace (don't delete files on the disk)
   - Delete .project and .classpath files and .settings directory from the project folder
   - Re-import project: Import -> Existing Maven Project
   - Clean the server
-- We can customize AuthenticationFailureHandler by Java code 
+- Customize AuthenticationFailureHandler by Java 
 [[URL](https://www.baeldung.com/spring-security-custom-authentication-failure-handler)]
 - ```<form:from>``` automatically adds CSRF tokens
 - Password formats in Spring Security 5: noop (plain text), bcrypt (BCrypt hashing, 60 characters)
@@ -115,8 +127,9 @@
 - Implement "Remember me" function 
 [[URL](https://www.baeldung.com/spring-security-remember-me)]
 
+---
 
-
+[**Go to top**](#list-of-practiced-topics)
 
 
 
