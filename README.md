@@ -109,7 +109,7 @@
 - We can customize AuthenticationFailureHandler by Java code 
 [[URL](https://www.baeldung.com/spring-security-custom-authentication-failure-handler)]
 - ```<form:from>``` automatically adds CSRF tokens
-- Password formats in Spring Security 5: noop (plain text), bcrypt (BCrypt hashing)
+- Password formats in Spring Security 5: noop (plain text), bcrypt (BCrypt hashing, 60 characters)
 - Resources in src/main/resources will be automatically copied to classpath during Maven build
 - Implement "Remember me" function 
 [[URL](https://www.baeldung.com/spring-security-remember-me)]

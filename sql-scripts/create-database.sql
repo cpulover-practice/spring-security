@@ -1,7 +1,7 @@
-DROP DATABASE  IF EXISTS `spring_security_demo_plaintext`;
+DROP DATABASE  IF EXISTS `spring_security`;
 
-CREATE DATABASE  IF NOT EXISTS `spring_security_demo_plaintext`;
-USE `spring_security_demo_plaintext`;
+CREATE DATABASE  IF NOT EXISTS `spring_security`;
+USE `spring_security`;
 
 --
 -- Table structure for table `users`
@@ -10,7 +10,7 @@ USE `spring_security_demo_plaintext`;
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `username` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL,
+  `password` varchar(68) NOT NULL,
   `enabled` tinyint(1) NOT NULL,
   PRIMARY KEY (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -21,9 +21,12 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` 
 VALUES 
-('cpulover1','{noop}1',1),
-('cpulover2','{noop}2',1),
-('cpulover3','{noop}3',1);
+('cpulover1','{bcrypt}$2y$12$xbDVkPOMK6yxs8ubQht2juiMGOV92NDXqJwZghQk5CD1XzItibOv2 
+',1), -- password: 1 <=> {noop}1
+('cpulover2','{bcrypt}$2y$12$1NlSUMmseoAyVngGmiYJnOqemsnciH6mGkuc/5DNRdGmaAXieA.Q.
+',1), -- password: 2
+('cpulover3','{bcrypt}$2y$12$Ajb/Ad/ttGgXaczrmJS7neMF9hIRhIRfuJWv7jVJMOgHnfKyT2opq
+',1); -- password: 3
 
 
 --
