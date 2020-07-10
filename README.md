@@ -4,6 +4,7 @@
 1. Create Maven project with webapp archertype in Esclipse.
 2. Setup POM file 
 [[pom.xml](https://github.com/cpulover-practice/spring-security/blob/master/pom.xml)]
+   - Change JDK version (Servlet 3.0 require JDK 6+)
    - ```springframework.version``` property with ```spring-webmvc``` dependency
    - ```springsecurity.version``` property with ```spring-security-web``` and ```spring-security-config``` dependency (must compatible with springframework version, may be different)
    - ```spring-security-taglabs``` dependency (access user id/role in JSP)
