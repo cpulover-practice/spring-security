@@ -13,7 +13,7 @@
 3. Project properties (Alt+Enter) -> Project facets -> Runtimes: Tomcat
 4. Update Maven project (Alt+F5)
 
-### Spring MVC Configuration
+#### Spring MVC Configuration
 1. Create Spring Configuration class 
 [[AppConfig](https://github.com/cpulover-practice/spring-security/blob/master/src/main/java/com/cpulover/springsecurity/config/AppConfig.java)]
    - *__@Configuration__*
@@ -33,7 +33,7 @@
 [[home.jsp](https://github.com/cpulover-practice/spring-security/blob/master/src/main/webapp/WEB-INF/view/home.jsp)]
 6. Run project on server to test Spring MVC
 
-### Spring Security Configuration
+#### Spring Security Configuration
 1. Create Spring Security Initializer extends AbstractSecurityWebApplicationInitializer 
 [[SecurityInitializer](https://github.com/cpulover-practice/spring-security/blob/master/src/main/java/com/cpulover/springsecurity/config/SecurityInitializer.java)]
 2. Create Spring Security Configuration class extends WebSecurityConfigurerAdapter
